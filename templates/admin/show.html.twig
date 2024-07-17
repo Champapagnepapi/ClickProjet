@@ -1,0 +1,109 @@
+{# templates/admin/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'utilisateur{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {# Ici je définis le style de la card de view pour l'efffet avec souris NB: il est préférable de faire un fichier pour le css
+    et l'importer dans le fichier base.html.twig
+    #}
+    <style>
+        .card-details {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-details:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .details-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .details-item dt {
+            font-weight: bold;
+            color: #555;
+        }
+        .details-item dd {
+            margin-left: 0;
+            color: #333;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Détails de l'utilisateur</h1>
+
+        <div class="card card-details">
+            <div class="card-body">
+                <div class="details-item">
+                    <dt>ID :  {{ user.id }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Email : {{ user.email }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Nom :  {{ user.nom }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Prénom : {{ user.prenom }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Adresse :{{ user.adresse }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Numéro : {{ user.numero }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Ville : {{ user.ville }}</dt>
+                </div>
+
+                <div class="details-item">
+                    <dt>Profession :  {{ user.profession }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Quartier : {{ user.quartier }}</dt>
+
+                </div>
+
+                <div class="details-item">
+                    <dt>Pays :  {{ user.pays }}</dt>
+
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ path('app_admin') }}" class="btn btn-secondary mt-3">Retour à la liste des utilisateurs</a>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {# Ici je gère l'animation de la card de view pour l'efffet avec souris #}
+    <script>
+
+        $(document).ready(function() {
+            $('.card-details').hover(function() {
+                $(this).addClass('shadow-lg').css('cursor', 'pointer');
+            }, function() {
+                $(this).removeClass('shadow-lg');
+            });
+        });
+    </script>
+{% endblock %}

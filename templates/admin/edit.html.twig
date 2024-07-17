@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Utilisateur{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Ajouter un Utilisateur</h1>
+
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+            </div>
+            <div class="col-md-6" >
+                {{ form_row(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe','readonly': 'readonly'}}) }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                {{ form_row(form.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Adresse'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.numero, {'attr': {'class': 'form-control', 'placeholder': 'Numéro'}}) }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                {{ form_row(form.ville, {'attr': {'class': 'form-control', 'placeholder': 'Ville'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.profession, {'attr': {'class': 'form-control', 'placeholder': 'Profession'}}) }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                {{ form_row(form.quartier, {'attr': {'class': 'form-control', 'placeholder': 'Quartier'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.pays, {'attr': {'class': 'form-control', 'placeholder': 'Pays'}}) }}
+            </div>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <a href="{{ path('app_admin') }}" class="btn btn-secondary ms-2">Annuler</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
